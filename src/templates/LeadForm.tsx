@@ -11,7 +11,7 @@ type FormState = {
   wa: string;
 };
 
-const Leadform = () => {
+const LeadForm = () => {
   const [form, setForm] = useState<FormState>({
     name: '',
     campus: '',
@@ -150,4 +150,4 @@ WhatsApp: ${wa}
   );
 };
 
-export { Leadform };
+export { LeadForm };
