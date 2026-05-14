@@ -150,4 +150,4 @@ WhatsApp: ${wa}
   );
 };
 
-export { LeadForm };
+export { Leadform };
