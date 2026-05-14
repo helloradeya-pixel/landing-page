@@ -73,12 +73,12 @@ const Hero = () => (
           relative z-10
           flex min-h-screen items-center
           px-5
-          pt-12
+          pt-10
           md:px-20
         "
       >
 
-        <div className="max-w-[380px] md:max-w-[500px]">
+        <div className="max-w-[320px] md:max-w-[500px]">
 
           {/* SMALL TEXT */}
           <p
@@ -86,11 +86,10 @@ const Hero = () => (
               mb-4
               text-[9px]
               uppercase
-              tracking-[0.32em]
+              tracking-[0.3em]
               text-neutral-300
               md:mb-6
               md:text-sm
-              md:tracking-[0.4em]
             "
           >
             More than portraits.
@@ -100,13 +99,12 @@ const Hero = () => (
           <h1
             className="
               whitespace-pre-line
-              text-[2rem]
+              text-[1.6rem]
               font-semibold
               leading-[1]
               tracking-[-0.03em]
               text-white
-              sm:text-5xl
-              md:text-7xl
+              md:text-6xl
             "
           >
             A visual story
@@ -117,12 +115,11 @@ const Hero = () => (
           {/* DESCRIPTION */}
           <p
             className="
-              mt-5
-              max-w-[300px]
-              text-[13px]
-              leading-[1.6]
+              mt-4
+              max-w-[260px]
+              text-[12px]
+              leading-[1.5]
               text-neutral-300
-              sm:text-base
               md:mt-8
               md:max-w-xl
               md:text-xl
@@ -133,21 +130,20 @@ const Hero = () => (
           </p>
 
           {/* BUTTON */}
-          <div className="mt-7 md:mt-12">
+          <div className="mt-6 md:mt-12">
             <Link href="#leadform">
               <Button xl>Get Pricelist →</Button>
             </Link>
           </div>
 
           {/* STORY TEXT */}
-          <div className="mt-8 md:mt-14">
+          <div className="mt-7 md:mt-14">
             <p
               className="
-                max-w-[300px]
-                text-[13px]
-                leading-[1.7]
+                max-w-[260px]
+                text-[12px]
+                leading-[1.6]
                 text-neutral-300
-                sm:text-base
                 md:max-w-2xl
                 md:text-xl
               "
