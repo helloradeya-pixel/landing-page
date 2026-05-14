@@ -5,7 +5,7 @@ import { Footer } from './Footer';
 import { Hero } from './Hero';
 import { Gallery } from './Gallery';
 import { Testimonial } from './Testimonial';
-import { LeadForm } from './Leadform';
+import { Leadform } from './Leadform';
 
 const Base = () => (
   <div className="text-gray-600 antialiased">
@@ -13,7 +13,7 @@ const Base = () => (
     <Hero />
     <Gallery />
      <Testimonial />
-    <LeadForm />
+    <Leadform />
     <Banner />
     <Footer />
   </div>
