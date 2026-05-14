@@ -11,7 +11,7 @@ type FormState = {
   wa: string;
 };
 
-const LeadForm = () => {
+const Leadform = () => {
   const [form, setForm] = useState<FormState>({
     name: '',
     campus: '',
