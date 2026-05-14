@@ -25,42 +25,42 @@ const Gallery = () => {
 
                     <div className="group overflow-hidden rounded-2xl">
                         <img
-                            src="/assets/images/ads00529.jpg"
+                            src="/assets/images/ADS00529.jpg"
                             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05] group-hover:brightness-110"
                         />
                     </div>
 
                     <div className="group overflow-hidden rounded-2xl">
                         <img
-                            src="/assets/images/ads00598.jpg"
+                            src="/assets/images/ADS00598.jpg"
                             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05] group-hover:brightness-110"
                         />
                     </div>
 
                     <div className="group overflow-hidden rounded-2xl">
                         <img
-                            src="/assets/images/ads00467.jpg"
+                            src="/assets/images/ADS00467.jpg"
                             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05] group-hover:brightness-110"
                         />
                     </div>
 
                     <div className="group overflow-hidden rounded-2xl">
                         <img
-                            src="/assets/images/ads00008.jpg"
+                            src="/assets/images/ADS00008.jpg"
                             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05] group-hover:brightness-110"
                         />
                     </div>
 
                     <div className="group overflow-hidden rounded-2xl">
                         <img
-                            src="/assets/images/ads00119.jpg"
+                            src="/assets/images/ADS00119.jpg"
                             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05] group-hover:brightness-110"
                         />
                     </div>
 
                     <div className="group overflow-hidden rounded-2xl">
                         <img
-                            src="/assets/images/ads00128.jpg"
+                            src="/assets/images/ADS00128.jpg"
                             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05] group-hover:brightness-110"
                         />
                     </div>
