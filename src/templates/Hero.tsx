@@ -7,21 +7,23 @@ const Hero = () => (
   <Background color="bg-black">
 
     {/* NAVBAR */}
-    <div className="fixed left-0 top-0 z-50 flex w-full justify-end px-6 py-6 md:px-16 md:py-8">
+    <div className="fixed left-0 top-0 z-50 flex w-full justify-end px-5 py-5 md:px-16 md:py-8">
       <Link href="https://wa.me/628211251570">
-        <button className="
-          rounded-full
-          border border-white/20
-          px-4 py-2
-          text-[10px]
-          tracking-[0.25em]
-          text-white
-          transition duration-300
-          hover:bg-white
-          hover:text-black
-          md:px-5
-          md:text-[11px]
-        ">
+        <button
+          className="
+            rounded-full
+            border border-white/20
+            px-4 py-2
+            text-[9px]
+            tracking-[0.22em]
+            text-white
+            transition duration-300
+            hover:bg-white
+            hover:text-black
+            md:px-5
+            md:text-[11px]
+          "
+        >
           KONSULTASI GRATIS →
         </button>
       </Link>
@@ -32,20 +34,22 @@ const Hero = () => (
       href="https://wa.me/628211251570"
       className="fixed bottom-5 right-5 z-50 md:bottom-6 md:right-6"
     >
-      <div className="
-        flex h-12 w-12
-        items-center justify-center
-        rounded-full
-        bg-white
-        shadow-lg
-        transition
-        hover:scale-110
-        md:h-14 md:w-14
-      ">
+      <div
+        className="
+          flex h-11 w-11
+          items-center justify-center
+          rounded-full
+          bg-white
+          shadow-lg
+          transition
+          hover:scale-110
+          md:h-14 md:w-14
+        "
+      >
         <img
           src="/assets/images/Whatsapp.png"
           alt="WhatsApp"
-          className="h-6 w-6 md:h-7 md:w-7"
+          className="h-5 w-5 md:h-7 md:w-7"
         />
       </div>
     </Link>
@@ -61,83 +65,93 @@ const Hero = () => (
       />
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* CONTENT */}
-      <div className="
-        relative z-10
-        flex min-h-screen items-center
-        px-6
-        pt-16
-        md:px-20
-      ">
+      <div
+        className="
+          relative z-10
+          flex min-h-screen items-center
+          px-5
+          pt-12
+          md:px-20
+        "
+      >
 
-        <div className="max-w-[500px]">
+        <div className="max-w-[380px] md:max-w-[500px]">
 
           {/* SMALL TEXT */}
-          <p className="
-            mb-5
-            text-[10px]
-            uppercase
-            tracking-[0.35em]
-            text-neutral-300
-            md:mb-6
-            md:text-sm
-            md:tracking-[0.4em]
-          ">
+          <p
+            className="
+              mb-4
+              text-[9px]
+              uppercase
+              tracking-[0.32em]
+              text-neutral-300
+              md:mb-6
+              md:text-sm
+              md:tracking-[0.4em]
+            "
+          >
             More than portraits.
           </p>
 
           {/* HEADING */}
-          <h1 className="
-            whitespace-pre-line
-            text-[2.7rem]
-            font-semibold
-            leading-[0.95]
-            tracking-[-0.03em]
-            text-white
-            sm:text-6xl
-            md:text-7xl
-          ">
+          <h1
+            className="
+              whitespace-pre-line
+              text-[2rem]
+              font-semibold
+              leading-[1]
+              tracking-[-0.03em]
+              text-white
+              sm:text-5xl
+              md:text-7xl
+            "
+          >
             A visual story
             {'\n'}
             of your final chapter.
           </h1>
 
           {/* DESCRIPTION */}
-          <p className="
-            mt-6
-            max-w-[340px]
-            text-[15px]
-            leading-[1.7]
-            text-neutral-300
-            sm:text-lg
-            md:mt-8
-            md:max-w-xl
-            md:text-xl
-          ">
+          <p
+            className="
+              mt-5
+              max-w-[300px]
+              text-[13px]
+              leading-[1.6]
+              text-neutral-300
+              sm:text-base
+              md:mt-8
+              md:max-w-xl
+              md:text-xl
+            "
+          >
             Crafted for graduates who want their memories
             to feel timeless, emotional, and cinematic.
           </p>
 
           {/* BUTTON */}
-          <div className="mt-8 md:mt-12">
+          <div className="mt-7 md:mt-12">
             <Link href="#leadform">
               <Button xl>Get Pricelist →</Button>
             </Link>
           </div>
 
           {/* STORY TEXT */}
-          <div className="mt-10 md:mt-14">
-            <p className="
-              max-w-[340px]
-              text-[15px]
-              leading-[1.8]
-              text-neutral-300
-              sm:text-lg
-              md:max-w-2xl
-              md:text-xl
-            ">
+          <div className="mt-8 md:mt-14">
+            <p
+              className="
+                max-w-[300px]
+                text-[13px]
+                leading-[1.7]
+                text-neutral-300
+                sm:text-base
+                md:max-w-2xl
+                md:text-xl
+              "
+            >
               Dari perjalanan panjang menuju hari kelulusan
               <br />
               hingga momen kecil yang tak sempat diulang
@@ -147,22 +161,25 @@ const Hero = () => (
           </div>
 
           {/* RATING */}
-          <div className="mt-8 md:mt-10">
+          <div className="mt-7 md:mt-10">
 
-            <div className="
-              inline-flex
-              items-center
-              gap-3
-              rounded-full
-              border border-white/20
-              px-3 py-1
-              text-xs
-              text-neutral-300
-              backdrop-blur-sm
-              md:text-sm
-            ">
+            <div
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-full
+                border border-white/20
+                px-3 py-1
+                text-[10px]
+                text-neutral-300
+                backdrop-blur-sm
+                md:gap-3
+                md:text-sm
+              "
+            >
 
-              <p className="tracking-[0.2em] text-white">
+              <p className="tracking-[0.15em] text-white">
                 ★ ★ ★ ★ ★
               </p>
 
@@ -174,12 +191,14 @@ const Hero = () => (
 
             </div>
 
-            <p className="
-              mt-2
-              text-xs
-              text-neutral-400
-              md:text-sm
-            ">
+            <p
+              className="
+                mt-2
+                text-[10px]
+                text-neutral-400
+                md:text-sm
+              "
+            >
               Trusted by graduates across campuses
             </p>
 
