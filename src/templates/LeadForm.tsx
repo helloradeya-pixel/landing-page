@@ -65,7 +65,7 @@ WhatsApp: ${wa}
     !form.wa.trim();
 
   return (
-    <section id="LeadForm" className="bg-black py-28 text-white scroll-mt-32">
+    <section id="leadform" className="bg-black py-28 text-white scroll-mt-32">
       <div className="mx-auto max-w-3xl px-8 md:px-16">
 
         {/* HEADER */}
