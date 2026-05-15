@@ -100,11 +100,11 @@ WhatsApp: ${wa}
             className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none"
           />
 
-          {/* DATE */}
           <input
             name="date"
             type="date"
             onChange={handleChange}
+            style={{ textAlign: 'left' }}
             className="
     w-full
     appearance-none
@@ -112,7 +112,10 @@ WhatsApp: ${wa}
     border border-white/10
     bg-white/5
     px-4 py-3
-    text-sm text-white
+    pr-4
+    text-left
+    text-sm
+    text-white
     outline-none
     min-h-[50px]
   "
