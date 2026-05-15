@@ -130,9 +130,9 @@ const Hero = () => (
           </p>
 
           {/* BUTTON */}
-          <div className="mt-6 md:mt-12">
+          <div className="mt-6 md:mt-12 scale-75 origin-left md:scale-100">
             <Link href="#leadform">
-              <Button xl>Get Pricelist →</Button>
+              <Button>Get Pricelist →</Button>
             </Link>
           </div>
 
