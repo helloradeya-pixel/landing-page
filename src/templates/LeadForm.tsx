@@ -21,6 +21,8 @@ const LeadForm = () => {
     wa: '',
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
@@ -28,21 +30,47 @@ const LeadForm = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // 🔥 HARD VALIDATION (ANTI BOLONG)
+    // 🔥 VALIDATION
     const name = form.name.trim();
     const campus = form.campus.trim();
     const date = form.date.trim();
     const wa = form.wa.trim();
 
     if (!name || !campus || !date || !wa) {
-      alert('⚠️ Mohon isi Nama, Kampus, Tanggal, dan WhatsApp terlebih dahulu');
+      alert(
+        '⚠️ Mohon isi Nama, Kampus, Tanggal, dan WhatsApp terlebih dahulu'
+      );
       return;
     }
 
-    const message = `
+    try {
+      setLoading(true);
+
+      // 🔥 SEND TO API
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+
+        headers: {
+          'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      // 🔥 FAILED
+      if (!data.success) {
+        alert('❌ Gagal mengirim data ke Notion');
+        setLoading(false);
+        return;
+      }
+
+      // 🔥 WHATSAPP MESSAGE
+      const message = `
 Halo, saya ingin konsultasi graduation photoshoot:
 
 Nama: ${name}
@@ -51,11 +79,32 @@ Tanggal Sesi: ${date}
 Budget: ${form.budget}
 Instagram: ${form.instagram}
 WhatsApp: ${wa}
-    `;
+      `;
 
-    const url = `https://wa.me/628211251570?text=${encodeURIComponent(message)}`;
+      const url = `https://wa.me/628211251570?text=${encodeURIComponent(
+        message
+      )}`;
 
-    window.open(url, '_blank');
+      // 🔥 OPEN WHATSAPP
+      window.open(url, '_blank');
+
+      // 🔥 RESET FORM
+      setForm({
+        name: '',
+        campus: '',
+        date: '',
+        budget: '',
+        instagram: '',
+        wa: '',
+      });
+
+    } catch (error) {
+      console.log(error);
+
+      alert('❌ Terjadi error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const isDisabled =
@@ -65,11 +114,15 @@ WhatsApp: ${wa}
     !form.wa.trim();
 
   return (
-    <section id="leadform" className="bg-black py-28 text-white scroll-mt-32">
+    <section
+      id="leadform"
+      className="scroll-mt-32 bg-black py-28 text-white"
+    >
       <div className="mx-auto max-w-3xl px-8 md:px-16">
 
         {/* HEADER */}
         <div className="text-center">
+
           <p className="text-xs uppercase tracking-[0.4em] text-neutral-500">
             Graduation Booking
           </p>
@@ -81,6 +134,7 @@ WhatsApp: ${wa}
           <p className="mt-6 text-sm text-neutral-400 md:text-base">
             Isi data kamu, pilih tanggal, lalu kirim untuk konsultasi WhatsApp.
           </p>
+
         </div>
 
         {/* FORM */}
@@ -88,6 +142,7 @@ WhatsApp: ${wa}
 
           <input
             name="name"
+            value={form.name}
             placeholder="Nama Lengkap *"
             onChange={handleChange}
             className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none"
@@ -95,7 +150,8 @@ WhatsApp: ${wa}
 
           <input
             name="campus"
-            placeholder="Kampus / Universitas *"
+            value={form.campus}
+            placeholder="Universitas *"
             onChange={handleChange}
             className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none"
           />
@@ -103,26 +159,29 @@ WhatsApp: ${wa}
           <input
             name="date"
             type="date"
+            value={form.date}
             onChange={handleChange}
             style={{ textAlign: 'left' }}
             className="
-    w-full
-    appearance-none
-    rounded-xl
-    border border-white/10
-    bg-white/5
-    px-4 py-3
-    pr-4
-    text-left
-    text-sm
-    text-white
-    outline-none
-    min-h-[50px]
-  "
+              min-h-[50px]
+              w-full
+              appearance-none
+              rounded-xl
+              border border-white/10
+              bg-white/5
+              px-4
+              py-3
+              pr-4
+              text-left
+              text-sm
+              text-white
+              outline-none
+            "
           />
 
           <input
             name="budget"
+            value={form.budget}
             placeholder="Budget (opsional)"
             onChange={handleChange}
             className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none"
@@ -130,6 +189,7 @@ WhatsApp: ${wa}
 
           <input
             name="instagram"
+            value={form.instagram}
             placeholder="Instagram"
             onChange={handleChange}
             className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none"
@@ -137,22 +197,39 @@ WhatsApp: ${wa}
 
           <input
             name="wa"
+            value={form.wa}
             placeholder="WhatsApp aktif *"
             onChange={handleChange}
             className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none"
           />
 
-          {/* CTA BUTTON */}
+          {/* BUTTON */}
           <button
             type="submit"
-            disabled={isDisabled}
-            className="w-full rounded-xl bg-white px-4 py-3 text-sm font-medium text-black transition hover:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={isDisabled || loading}
+            className="
+              w-full
+              rounded-xl
+              bg-white
+              px-4
+              py-3
+              text-sm
+              font-medium
+              text-black
+              transition
+              hover:bg-neutral-200
+              disabled:cursor-not-allowed
+              disabled:opacity-40
+            "
           >
-            Kirim & Konsultasi Sekarang →
+            {loading
+              ? 'Mengirim...'
+              : 'Kirim & Konsultasi Sekarang →'}
           </button>
+
         </form>
 
-        {/* SECURITY NOTE */}
+        {/* FOOTER */}
         <div className="mt-8 flex items-center justify-center gap-2 text-xs text-neutral-500">
           <span>🔒</span>
           <p>Data kamu aman & tidak akan dibagikan ke pihak lain</p>
