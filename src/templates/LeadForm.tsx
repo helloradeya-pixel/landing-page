@@ -188,6 +188,14 @@ Boleh dibantu info detail paketnya ya 🙏`;
             />
           </div>
 
+          <p className="text-xs text-neutral-500">
+
+    Estimasi tanggal (opsional kalau belum fix)
+
+  </p>
+
+</div>
+
           <select
             name="budget"
             value={form.budget}
