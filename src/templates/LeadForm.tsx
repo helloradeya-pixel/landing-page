@@ -154,7 +154,7 @@ WhatsApp: ${wa}
             className={fieldStyle}
           />
 
-          {/* DATE FIX (LEFT ALIGNED) */}
+          {/* DATE (SAFE + CLICKABLE) */}
           <div
             className="
               flex
@@ -181,8 +181,6 @@ WhatsApp: ${wa}
                 text-white
                 outline-none
                 text-left
-                appearance-none
-                leading-normal
               "
               style={{
                 colorScheme: 'dark',
