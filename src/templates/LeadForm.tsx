@@ -66,16 +66,14 @@ const LeadForm = () => {
         return;
       }
 
-      const message = `
-Halo, saya ingin konsultasi graduation photoshoot:
+      const message = `Halo admin 👋
+
+Saya mau tanya info paket & pricelist graduation photoshoot.
 
 Nama: ${name}
 Kampus: ${campus}
-Tanggal Sesi: ${date}
-Budget: ${form.budget}
-Instagram: ${form.instagram}
-WhatsApp: ${wa}
-      `;
+
+Boleh dibantu info detail paketnya ya 🙏`;
 
       const url = `https://wa.me/628211251570?text=${encodeURIComponent(
         message,
