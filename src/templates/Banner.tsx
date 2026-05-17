@@ -16,7 +16,7 @@ const Banner = () => (
 
       {/* BACKGROUND IMAGE */}
       <img
-        src="/assets/images/ADS00529.jpg"
+        src="/assets/images/ADS00060.jpg"
         alt=""
         className="
           absolute
