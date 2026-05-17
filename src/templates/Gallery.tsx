@@ -1,31 +1,19 @@
-const images = [
-    "/assets/images/ADS00529.jpg",
-    "/assets/images/ADS00598.jpg",
-    "/assets/images/ADS00467.jpg",
-    "/assets/images/ADS00008.jpg",
-    "/assets/images/ADS00119.jpg",
-    "/assets/images/ADS00128.jpg",
-    "/assets/images/ADS00529.jpg",
-    "/assets/images/ADS00598.jpg",
-    "/assets/images/ADS00467.jpg",
-];
-
 const Gallery = () => {
     return (
-        <section className="bg-black px-4 py-24 md:px-16">
-            <div className="mx-auto max-w-6xl">
+        <section className="bg-black py-24 px-3 md:px-10">
+            <div className="max-w-6xl mx-auto">
 
                 {/* HEADER */}
-                <div className="mx-auto max-w-2xl text-center">
+                <div className="max-w-2xl mx-auto text-center">
                     <p className="text-xs uppercase tracking-[0.4em] text-neutral-500">
                         Visual Archive
                     </p>
 
-                    <h2 className="mt-4 text-3xl font-semibold text-white md:text-5xl">
+                    <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-white">
                         Captured Moments
                     </h2>
 
-                    <p className="mt-6 text-sm leading-relaxed text-neutral-400 md:text-base">
+                    <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-400">
                         Kami percaya setiap perjalanan memiliki detail yang layak dihormati.
                         Dari momen paling sederhana hingga hari paling penting,
                         kami menerjemahkannya menjadi visual yang tenang, elegan, dan abadi.
@@ -33,43 +21,88 @@ const Gallery = () => {
                 </div>
 
                 {/* GRID */}
-                <div className="mt-16 grid grid-cols-3 gap-2 md:gap-5">
+                <div className="mt-14 grid grid-cols-3 gap-2 md:gap-4">
 
-                    {images.map((img, i) => (
-                        <div
-                            key={i}
-                            className="
-                                group
-                                overflow-hidden
-                                rounded-md
-                                md:rounded-2xl
-                                bg-neutral-900
-                                opacity-0
-                                animate-fadeUp
-                            "
-                            style={{
-                                animationDelay: `${i * 120}ms`,
-                                animationFillMode: "forwards",
-                            }}
-                        >
-                            <img
-                                src={img}
-                                alt={`Gallery ${i + 1}`}
-                                loading="lazy"
-                                className="
-                                    aspect-[3/4]
-                                    h-full
-                                    w-full
-                                    object-cover
-                                    transition-all
-                                    duration-700
-                                    ease-out
-                                    group-hover:scale-110
-                                    group-hover:brightness-110
-                                "
-                            />
-                        </div>
-                    ))}
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00529.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
+
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00598.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
+
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00467.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
+
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00008.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
+
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00119.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
+
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00128.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
+
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00529.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
+
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00598.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
+
+                    <div className="overflow-hidden rounded-lg md:rounded-2xl group">
+                        <img
+                            src="/assets/images/ADS00467.jpg"
+                            alt=""
+                            loading="lazy"
+                            className="w-full aspect-[3/4] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        />
+                    </div>
 
                 </div>
 
