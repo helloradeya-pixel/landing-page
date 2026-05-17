@@ -8,15 +8,18 @@ const Banner = () => (
       className="
         relative
         overflow-hidden
-        rounded-2xl
-        border
-        border-white/10
+        rounded-none
+        md:rounded-[32px]
+        min-h-[85vh]
+        flex
+        items-center
+        justify-center
       "
     >
 
       {/* BACKGROUND IMAGE */}
       <img
-        src="/assets/images/ADS00060.jpg"
+        src="/assets/images/ADS00529.jpg"
         alt=""
         className="
           absolute
@@ -28,37 +31,29 @@ const Banner = () => (
       />
 
       {/* DARK OVERLAY */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-black/60
-          backdrop-blur-[2px]
-        "
-      />
+      <div className="absolute inset-0 bg-black/45" />
 
       {/* CONTENT */}
       <div
         className="
           relative
           z-10
+          max-w-3xl
           px-6
-          py-20
           text-center
-          md:px-16
         "
       >
 
-        <h2 className="text-2xl font-semibold text-white md:text-4xl">
+        <h2 className="text-4xl font-semibold leading-tight text-white md:text-6xl">
           Siap mengabadikan momen wisuda kamu?
         </h2>
 
-        <p className="mx-auto mt-4 max-w-xl text-sm text-neutral-300 md:text-base">
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-neutral-200 md:text-xl">
           Setiap cerita punya akhir yang layak dikenang dengan indah.
           Booking sekarang dan dapatkan konsep cinematic untuk graduation kamu.
         </p>
 
-        <div className="mt-8">
+        <div className="mt-10">
           <Link href="#leadform">
             <Button xl>Book Your Session →</Button>
           </Link>
