@@ -152,53 +152,16 @@ WhatsApp: ${wa}
             className={fieldStyle}
           />
 
-          {/* DATE FIX FINAL (CENTER ISSUE SOLVED) */}
-          <div
-            className="
-              flex
-              h-[54px]
-              w-full
-              items-center
-              overflow-hidden
-              rounded-xl
-              border
-              border-white/10
-              bg-white/5
-              px-4
-            "
-          >
+          {/* DATE FIX SAFE (NO STYLED-JSX) */}
+          <div className="flex h-[54px] w-full items-center rounded-xl border border-white/10 bg-white/5 px-4">
             <input
               name="date"
               type="date"
               value={form.date}
               onChange={handleChange}
-              className="date-input w-full bg-transparent text-sm text-white outline-none"
+              className="w-full bg-transparent text-sm text-white outline-none"
               style={{ colorScheme: 'dark' }}
             />
-
-            <style jsx>{`
-              .date-input {
-                text-align: left;
-              }
-
-              .date-input::-webkit-datetime-edit {
-                text-align: left;
-              }
-
-              .date-input::-webkit-datetime-edit-fields-wrapper {
-                text-align: left;
-              }
-
-              .date-input::-webkit-datetime-edit-text {
-                text-align: left;
-              }
-
-              .date-input::-webkit-datetime-edit-month-field,
-              .date-input::-webkit-datetime-edit-day-field,
-              .date-input::-webkit-datetime-edit-year-field {
-                text-align: left;
-              }
-            `}</style>
           </div>
 
           <select
@@ -210,23 +173,18 @@ WhatsApp: ${wa}
             <option value="" className="bg-black text-neutral-500">
               Pilih Range Budget
             </option>
-
             <option value="200K - 300K" className="bg-black">
               200K - 300K
             </option>
-
             <option value="300K - 400K" className="bg-black">
               300K - 400K
             </option>
-
             <option value="400K - 500K" className="bg-black">
               400K - 500K
             </option>
-
             <option value="500K - 600K" className="bg-black">
               500K - 600K
             </option>
-
             <option value="600K - 800K" className="bg-black">
               600K - 800K
             </option>
