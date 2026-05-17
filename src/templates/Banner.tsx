@@ -1,56 +1,65 @@
+import Image from 'next/image';
 import Link from 'next/link';
+
 import { Button } from '../button/Button';
-import { Section } from '../layout/Section';
 
 const Banner = () => (
-  <Section>
+  <section className="relative h-screen w-full overflow-hidden">
+    {/* BACKGROUND IMAGE */}
+    <Image
+      src="/assets/images/ADS00060.jpg"
+      alt="Graduation Banner"
+      fill
+      priority
+      className="object-cover"
+    />
+
+    {/* CINEMATIC GRADIENT OVERLAY */}
+    <div
+      className="
+        absolute
+        inset-0
+        bg-[linear-gradient(to_bottom,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.25)_35%,rgba(0,0,0,0.25)_65%,rgba(0,0,0,0.92)_100%)]
+      "
+    />
+
+    {/* CONTENT */}
     <div
       className="
         relative
-        overflow-hidden
-        rounded-none
-        md:rounded-[32px]
-        min-h-[85vh]
+        z-10
         flex
+        h-full
         items-center
         justify-center
+        px-6
+        text-center
       "
     >
+      <div className="max-w-3xl">
+        <h2
+          className="
+            text-4xl
+            font-semibold
+            leading-tight
+            text-white
+            md:text-6xl
+          "
+        ></h2>
 
-      {/* BACKGROUND IMAGE */}
-      <img
-        src="/assets/images/ADS00060.jpg"
-        alt=""
-        className="
-          absolute
-          inset-0
-          h-full
-          w-full
-          object-cover
-        "
-      />
-
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/45" />
-
-      {/* CONTENT */}
-      <div
-        className="
-          relative
-          z-10
-          max-w-3xl
-          px-6
-          text-center
-        "
-      >
-
-        <h2 className="text-4xl font-semibold leading-tight text-white md:text-6xl">
-          Siap mengabadikan momen wisuda kamu?
-        </h2>
-
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-neutral-200 md:text-xl">
-          Setiap cerita punya akhir yang layak dikenang dengan indah.
-          Booking sekarang dan dapatkan konsep cinematic untuk graduation kamu.
+        <p
+          className="
+            mx-auto
+            mt-6
+            max-w-2xl
+            text-base
+            leading-relaxed
+            text-neutral-200
+            md:text-xl
+          "
+        >
+          Setiap cerita punya akhir yang layak dikenang dengan indah. Booking
+          sekarang dan dapatkan konsep cinematic untuk graduation kamu.
         </p>
 
         <div className="mt-10">
@@ -58,11 +67,9 @@ const Banner = () => (
             <Button xl>Book Your Session →</Button>
           </Link>
         </div>
-
       </div>
-
     </div>
-  </Section>
+  </section>
 );
 
 export { Banner };
