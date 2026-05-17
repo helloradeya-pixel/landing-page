@@ -41,7 +41,9 @@ const LeadForm = () => {
     const wa = form.wa.trim();
 
     if (!name || !campus || !date || !wa) {
-      alert('⚠️ Mohon isi Nama, Kampus, Tanggal, dan WhatsApp terlebih dahulu');
+      alert(
+        '⚠️ Mohon isi Nama, Kampus, Tanggal, dan WhatsApp terlebih dahulu',
+      );
       return;
     }
 
@@ -50,11 +52,9 @@ const LeadForm = () => {
 
       const res = await fetch('/api/lead', {
         method: 'POST',
-
         headers: {
           'Content-Type': 'application/json',
         },
-
         body: JSON.stringify(form),
       });
 
@@ -62,7 +62,6 @@ const LeadForm = () => {
 
       if (!data.success) {
         alert('❌ Gagal mengirim data ke Notion');
-        setLoading(false);
         return;
       }
 
@@ -93,7 +92,6 @@ WhatsApp: ${wa}
       });
     } catch (error) {
       console.log(error);
-
       alert('❌ Terjadi error');
     } finally {
       setLoading(false);
@@ -156,7 +154,7 @@ WhatsApp: ${wa}
             className={fieldStyle}
           />
 
-          {/* DATE FIX */}
+          {/* DATE FIX (LEFT ALIGNED) */}
           <div
             className="
               flex
@@ -177,12 +175,14 @@ WhatsApp: ${wa}
               value={form.date}
               onChange={handleChange}
               className="
-                date-input
                 w-full
                 bg-transparent
                 text-sm
                 text-white
                 outline-none
+                text-left
+                appearance-none
+                leading-normal
               "
               style={{
                 colorScheme: 'dark',
