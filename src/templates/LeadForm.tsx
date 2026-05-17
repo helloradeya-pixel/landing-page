@@ -41,9 +41,7 @@ const LeadForm = () => {
     const wa = form.wa.trim();
 
     if (!name || !campus || !date || !wa) {
-      alert(
-        '⚠️ Mohon isi Nama, Kampus, Tanggal, dan WhatsApp terlebih dahulu',
-      );
+      alert('⚠️ Mohon isi Nama, Kampus, Tanggal, dan WhatsApp terlebih dahulu');
       return;
     }
 
@@ -154,7 +152,7 @@ WhatsApp: ${wa}
             className={fieldStyle}
           />
 
-          {/* DATE (SAFE + CLICKABLE) */}
+          {/* DATE FIX FINAL (CENTER ISSUE SOLVED) */}
           <div
             className="
               flex
@@ -174,18 +172,33 @@ WhatsApp: ${wa}
               type="date"
               value={form.date}
               onChange={handleChange}
-              className="
-                w-full
-                bg-transparent
-                text-sm
-                text-white
-                outline-none
-                text-left
-              "
-              style={{
-                colorScheme: 'dark',
-              }}
+              className="date-input w-full bg-transparent text-sm text-white outline-none"
+              style={{ colorScheme: 'dark' }}
             />
+
+            <style jsx>{`
+              .date-input {
+                text-align: left;
+              }
+
+              .date-input::-webkit-datetime-edit {
+                text-align: left;
+              }
+
+              .date-input::-webkit-datetime-edit-fields-wrapper {
+                text-align: left;
+              }
+
+              .date-input::-webkit-datetime-edit-text {
+                text-align: left;
+              }
+
+              .date-input::-webkit-datetime-edit-month-field,
+              .date-input::-webkit-datetime-edit-day-field,
+              .date-input::-webkit-datetime-edit-year-field {
+                text-align: left;
+              }
+            `}</style>
           </div>
 
           <select
