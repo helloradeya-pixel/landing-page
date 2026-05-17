@@ -22,3 +22,19 @@
 .animate-fadeUp {
     animation: fadeUp 0.8s ease forwards;
 }
+
+.date-input {
+  text-align: left;
+}
+
+.date-input::-webkit-date-and-time-value {
+  text-align: left;
+}
+
+.date-input::-webkit-datetime-edit {
+  text-align: left;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
