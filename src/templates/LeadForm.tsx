@@ -37,9 +37,11 @@ const LeadForm = () => {
 
     const name = form.name.trim();
     const campus = form.campus.trim();
+    const date = form.date.trim();
+    const wa = form.wa.trim();
 
-    if (!name || !campus) {
-      alert('⚠️ Mohon isi Nama dan Kampus terlebih dahulu');
+    if (!name || !campus || !date || !wa) {
+      alert('⚠️ Mohon isi Nama, Kampus, Tanggal, dan WhatsApp terlebih dahulu');
       return;
     }
 
@@ -48,9 +50,11 @@ const LeadForm = () => {
 
       const res = await fetch('/api/lead', {
         method: 'POST',
+
         headers: {
           'Content-Type': 'application/json',
         },
+
         body: JSON.stringify(form),
       });
 
@@ -58,18 +62,20 @@ const LeadForm = () => {
 
       if (!data.success) {
         alert('❌ Gagal mengirim data ke Notion');
+        setLoading(false);
         return;
       }
 
-      // WA MODE: PRICELIST INQUIRY
-      const message = `Halo admin 👋
-
-Saya mau tanya info paket & pricelist graduation photoshoot.
+      const message = `
+Halo, saya ingin konsultasi graduation photoshoot:
 
 Nama: ${name}
 Kampus: ${campus}
-
-Boleh dibantu info detail paketnya ya 🙏`;
+Tanggal Sesi: ${date}
+Budget: ${form.budget}
+Instagram: ${form.instagram}
+WhatsApp: ${wa}
+      `;
 
       const url = `https://wa.me/628211251570?text=${encodeURIComponent(
         message,
@@ -87,6 +93,7 @@ Boleh dibantu info detail paketnya ya 🙏`;
       });
     } catch (error) {
       console.log(error);
+
       alert('❌ Terjadi error');
     } finally {
       setLoading(false);
@@ -94,7 +101,10 @@ Boleh dibantu info detail paketnya ya 🙏`;
   };
 
   const isDisabled =
-    !form.name.trim() || !form.campus.trim();
+    !form.name.trim() ||
+    !form.campus.trim() ||
+    !form.date.trim() ||
+    !form.wa.trim();
 
   const fieldStyle = `
     h-[54px]
@@ -113,7 +123,6 @@ Boleh dibantu info detail paketnya ya 🙏`;
   return (
     <section id="leadform" className="scroll-mt-32 bg-black py-28 text-white">
       <div className="mx-auto max-w-3xl px-8 md:px-16">
-
         {/* HEADER */}
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-neutral-500">
@@ -125,13 +134,12 @@ Boleh dibantu info detail paketnya ya 🙏`;
           </h2>
 
           <p className="mt-6 text-sm text-neutral-400 md:text-base">
-            Isi data kamu, lalu konsultasi paket via WhatsApp.
+            Isi data kamu, pilih tanggal, lalu kirim untuk konsultasi WhatsApp.
           </p>
         </div>
 
         {/* FORM */}
         <form onSubmit={handleSubmit} className="mt-12 space-y-4">
-
           <input
             name="name"
             value={form.name}
@@ -148,22 +156,38 @@ Boleh dibantu info detail paketnya ya 🙏`;
             className={fieldStyle}
           />
 
-          {/* DATE (SOFT + OPTIONAL) */}
-          <div className="space-y-1">
-            <div className="flex h-[54px] w-full items-center rounded-xl border border-white/10 bg-white/5 px-4">
-              <input
-                name="date"
-                type="date"
-                value={form.date}
-                onChange={handleChange}
-                className="w-full bg-transparent text-sm text-white outline-none"
-                style={{ colorScheme: 'dark' }}
-              />
-            </div>
-
-            <p className="text-xs text-neutral-500">
-              Estimasi tanggal (opsional kalau belum fix)
-            </p>
+          {/* DATE FIX */}
+          <div
+            className="
+              flex
+              h-[54px]
+              w-full
+              items-center
+              overflow-hidden
+              rounded-xl
+              border
+              border-white/10
+              bg-white/5
+              px-4
+            "
+          >
+            <input
+              name="date"
+              type="date"
+              value={form.date}
+              onChange={handleChange}
+              className="
+                date-input
+                w-full
+                bg-transparent
+                text-sm
+                text-white
+                outline-none
+              "
+              style={{
+                colorScheme: 'dark',
+              }}
+            />
           </div>
 
           <select
@@ -175,11 +199,26 @@ Boleh dibantu info detail paketnya ya 🙏`;
             <option value="" className="bg-black text-neutral-500">
               Pilih Range Budget
             </option>
-            <option value="200K - 300K" className="bg-black">200K - 300K</option>
-            <option value="300K - 400K" className="bg-black">300K - 400K</option>
-            <option value="400K - 500K" className="bg-black">400K - 500K</option>
-            <option value="500K - 600K" className="bg-black">500K - 600K</option>
-            <option value="600K - 800K" className="bg-black">600K - 800K</option>
+
+            <option value="200K - 300K" className="bg-black">
+              200K - 300K
+            </option>
+
+            <option value="300K - 400K" className="bg-black">
+              300K - 400K
+            </option>
+
+            <option value="400K - 500K" className="bg-black">
+              400K - 500K
+            </option>
+
+            <option value="500K - 600K" className="bg-black">
+              500K - 600K
+            </option>
+
+            <option value="600K - 800K" className="bg-black">
+              600K - 800K
+            </option>
           </select>
 
           <input
@@ -193,7 +232,7 @@ Boleh dibantu info detail paketnya ya 🙏`;
           <input
             name="wa"
             value={form.wa}
-            placeholder="WhatsApp aktif"
+            placeholder="WhatsApp aktif *"
             onChange={handleChange}
             className={fieldStyle}
           />
@@ -217,7 +256,7 @@ Boleh dibantu info detail paketnya ya 🙏`;
               disabled:opacity-40
             "
           >
-            {loading ? 'Mengirim...' : 'Tanya Pricelist via WhatsApp →'}
+            {loading ? 'Mengirim...' : 'Kirim & Konsultasi Sekarang →'}
           </button>
         </form>
 
@@ -226,7 +265,6 @@ Boleh dibantu info detail paketnya ya 🙏`;
           <span>🔒</span>
           <p>Data kamu aman & tidak akan dibagikan ke pihak lain</p>
         </div>
-
       </div>
     </section>
   );
