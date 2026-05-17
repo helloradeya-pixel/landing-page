@@ -1,9 +1,21 @@
 const Gallery = () => {
+    const images = [
+        "/assets/images/ADS00529.jpg",
+        "/assets/images/ADS00598.jpg",
+        "/assets/images/ADS00467.jpg",
+        "/assets/images/ADS00008.jpg",
+        "/assets/images/ADS00119.jpg",
+        "/assets/images/ADS00128.jpg",
+        "/assets/images/ADS00529.jpg",
+        "/assets/images/ADS00598.jpg",
+        "/assets/images/ADS00467.jpg",
+    ];
+
     return (
         <section
             style={{
-                background: "black",
-                padding: "80px 12px",
+                backgroundColor: "#000",
+                padding: "100px 10px",
             }}
         >
             <div
@@ -34,9 +46,9 @@ const Gallery = () => {
 
                     <h2
                         style={{
-                            color: "white",
+                            color: "#fff",
                             fontSize: "42px",
-                            fontWeight: 600,
+                            fontWeight: "600",
                             marginTop: "20px",
                         }}
                     >
@@ -46,9 +58,9 @@ const Gallery = () => {
                     <p
                         style={{
                             color: "#a3a3a3",
-                            fontSize: "15px",
-                            lineHeight: "1.8",
                             marginTop: "24px",
+                            lineHeight: "1.8",
+                            fontSize: "15px",
                         }}
                     >
                         Kami percaya setiap perjalanan memiliki detail yang layak dihormati.
@@ -63,71 +75,40 @@ const Gallery = () => {
                         marginTop: "60px",
                         display: "grid",
                         gridTemplateColumns: "repeat(3, 1fr)",
-                        gap: "8px",
+                        gap: "6px",
                     }}
                 >
-
-                    <img
-                        src="/assets/images/ADS00529.jpg"
-                        style={{
-                            width: "100%",
-                            aspectRatio: "3/4",
-                            objectFit: "cover",
-                            borderRadius: "12px",
-                        }}
-                    />
-
-                    <img
-                        src="/assets/images/ADS00598.jpg"
-                        style={{
-                            width: "100%",
-                            aspectRatio: "3/4",
-                            objectFit: "cover",
-                            borderRadius: "12px",
-                        }}
-                    />
-
-                    <img
-                        src="/assets/images/ADS00467.jpg"
-                        style={{
-                            width: "100%",
-                            aspectRatio: "3/4",
-                            objectFit: "cover",
-                            borderRadius: "12px",
-                        }}
-                    />
-
-                    <img
-                        src="/assets/images/ADS00008.jpg"
-                        style={{
-                            width: "100%",
-                            aspectRatio: "3/4",
-                            objectFit: "cover",
-                            borderRadius: "12px",
-                        }}
-                    />
-
-                    <img
-                        src="/assets/images/ADS00119.jpg"
-                        style={{
-                            width: "100%",
-                            aspectRatio: "3/4",
-                            objectFit: "cover",
-                            borderRadius: "12px",
-                        }}
-                    />
-
-                    <img
-                        src="/assets/images/ADS00128.jpg"
-                        style={{
-                            width: "100%",
-                            aspectRatio: "3/4",
-                            objectFit: "cover",
-                            borderRadius: "12px",
-                        }}
-                    />
-
+                    {images.map((img, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                overflow: "hidden",
+                                borderRadius: "10px",
+                            }}
+                        >
+                            <img
+                                src={img}
+                                alt=""
+                                style={{
+                                    width: "100%",
+                                    aspectRatio: "3 / 4",
+                                    objectFit: "cover",
+                                    display: "block",
+                                    transition: "0.7s",
+                                }}
+                                onMouseOver={(e) => {
+                                    e.currentTarget.style.transform = "scale(1.08)";
+                                    e.currentTarget.style.filter = "brightness(1.08)";
+                                }}
+                                onMouseOut={(e) => {
+                                    e.currentTarget.style.transform = "scale(1)";
+                                    e.currentTarget.style.filter = "brightness(1)";
+                                }}
+                            />
+                        </div>
+                    ))}
                 </div>
+
             </div>
         </section>
     );
