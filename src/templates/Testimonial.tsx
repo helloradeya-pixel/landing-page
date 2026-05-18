@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 
 const testimonials = [
   {
-    name: 'Ghazy Rasyid',
-    image: '/assets/images/client-1.jpg',
-    text: 'KERENNNNN!!!! bnrn bagus banget jujurrrr, kek apa ya. Awalnya ekspektasi yang fotografer biasa aja (awal liat di TikTok), tapi pas sesi foto sama mas nya, terus liat hasil nya, kacau brok bagus banget GILA. Admin nya ramah pula 😇😇😇. Sukses terus Radeyaaaa!!!! keren!!!.',
+    name: 'Regina Angelica.M',
+    image: '/assets/images/client-4.jpg',
+    text: 'Hasilnya semuanya bagus, pelayanannya bintang 5 banget, overall oke. Sehat terus buat kknyaaa.',
   },
   {
     name: 'Niken ayu wulandari',
@@ -19,9 +19,9 @@ const testimonials = [
     text: 'tim radeya top!!! ramah & sabar bgtttt terus aktif jg selalu mengarahkan gayanyaaaa. makasi radeyaa puas sekali servicesnyaa!!!.',
   },
   {
-    name: 'Regina Angelica.M',
-    image: '/assets/images/client-4.jpg',
-    text: 'Hasilnya semuanya bagus, pelayanannya bintang 5 banget, overall oke. Sehat terus buat kknyaaa.',
+    name: 'Ghazy Rasyid',
+    image: '/assets/images/client-1.jpg',
+    text: 'KERENNNNN!!!! bnrn bagus banget jujurrrr, kek apa ya. Awalnya ekspektasi yang fotografer biasa aja (awal liat di TikTok), tapi pas sesi foto sama mas nya, terus liat hasil nya, kacau brok bagus banget GILA. Admin nya ramah pula 😇😇😇. Sukses terus Radeyaaaa!!!! keren!!!.',
   },
 ];
 
