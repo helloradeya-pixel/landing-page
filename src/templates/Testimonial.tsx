@@ -4,54 +4,73 @@ import { useEffect, useRef } from 'react';
 
 const testimonials = [
   {
-    name: 'Ayu Pratiwi',
+    name: 'Ghazy Rasyid',
     image: '/assets/images/client-1.jpg',
-    text: 'Hasil fotonya bukan sekadar dokumentasi, tapi benar-benar terasa seperti cerita hidup yang dibekukan dengan indah.',
+    text: 'KERENNNNN!!!! bnrn bagus banget jujurrrr, kek apa ya. Awalnya ekspektasi yang fotografer biasa aja (awal liat di TikTok), tapi pas sesi foto sama mas nya, terus liat hasil nya, kacau brok bagus banget GILA. Admin nya ramah pula 😇😇😇. Sukses terus Radeyaaaa!!!! keren!!!.',
   },
   {
-    name: 'Rizky Ramadhan',
+    name: 'Niken ayu wulandari',
     image: '/assets/images/client-2.jpg',
-    text: 'Setiap frame punya rasa. Graduation jadi lebih bermakna dari yang aku bayangkan sebelumnya.',
+    text: 'rekomendedd untuk foto wisuda dan acara kalian lainnya,jujur puass bangett sama hasilnyaa,yang gbisa gaya kaya akuu pasti sukaa karna kakaknya sabar dan mau mengarahkan posenyaa gaissss, jangan sampai nyesell karna ga pake radeya photography yaaaaa!!.',
   },
   {
-    name: 'Nadia Putri',
+    name: 'Maritza Salwa Nabila',
     image: '/assets/images/client-3.jpg',
-    text: 'Shootingnya santai tapi hasilnya cinematic banget. Worth it banget buat momen kelulusan.',
+    text: 'tim radeya top!!! ramah & sabar bgtttt terus aktif jg selalu mengarahkan gayanyaaaa. makasi radeyaa puas sekali servicesnyaa!!!.',
   },
   {
-    name: 'Kevin Santoso',
+    name: 'Regina Angelica.M',
     image: '/assets/images/client-4.jpg',
-    text: 'Gak nyangka foto wisuda bisa se-estetik ini. Rasanya kayak film.',
+    text: 'Hasilnya semuanya bagus, pelayanannya bintang 5 banget, overall oke. Sehat terus buat kknyaaa.',
   },
 ];
 
-const Star = () => (
-  <span className="text-yellow-400">★</span>
-);
+const Star = () => <span className="text-yellow-400">★</span>;
 
 const Testimonial = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef(0);
+  const paused = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    let scroll = 0;
+    const speed = 0.4;
+    const maxScroll = el.scrollWidth / 2;
 
-    const interval = setInterval(() => {
-      scroll += 0.5; // 🔥 lebih smooth & slow
+    const animate = () => {
+      if (!paused.current && el) {
+        scrollRef.current += speed;
 
-      if (scroll >= el.scrollWidth / 2) {
-        scroll = 0;
+        if (scrollRef.current >= maxScroll) {
+          scrollRef.current = 0;
+        }
+
+        el.scrollLeft = scrollRef.current;
       }
 
-      el.scrollTo({
-        left: scroll,
-        behavior: 'smooth',
-      });
-    }, 16); // ~60fps
+      requestAnimationFrame(animate);
+    };
 
-    return () => clearInterval(interval);
+    const frame = requestAnimationFrame(animate);
+
+    // pause saat user touch / drag
+    const stop = () => (paused.current = true);
+    const start = () => (paused.current = false);
+
+    el.addEventListener('touchstart', stop);
+    el.addEventListener('touchend', start);
+    el.addEventListener('mouseenter', stop);
+    el.addEventListener('mouseleave', start);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      el.removeEventListener('touchstart', stop);
+      el.removeEventListener('touchend', start);
+      el.removeEventListener('mouseenter', stop);
+      el.removeEventListener('mouseleave', start);
+    };
   }, []);
 
   return (
@@ -73,27 +92,22 @@ const Testimonial = () => {
               <Star /><Star /><Star /><Star /><Star />
             </div>
 
-            <span className="text-yellow-400 font-medium">
-              4.9/5
-            </span>
+            <span className="text-yellow-400 font-medium">4.9/5</span>
 
-            <span className="text-neutral-400">
-              • 1,200+ Reviews
-            </span>
+            <span className="text-neutral-400">• 1,200+ Reviews</span>
           </div>
         </div>
 
         {/* SLIDER */}
         <div
           ref={ref}
-          className="mt-14 flex gap-6 overflow-x-hidden"
+          className="mt-14 flex gap-6 overflow-hidden"
         >
           {[...testimonials, ...testimonials].map((item, i) => (
             <div
               key={i}
-              className="min-w-[320px] rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition hover:scale-[1.02] duration-300"
+              className="min-w-[320px] rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition duration-300 hover:scale-[1.02]"
             >
-              {/* USER */}
               <div className="mb-4 flex items-center gap-3">
                 <img
                   src={item.image}
@@ -102,17 +116,13 @@ const Testimonial = () => {
                 />
 
                 <div>
-                  <p className="text-sm font-medium text-white">
-                    {item.name}
-                  </p>
-
+                  <p className="text-sm font-medium">{item.name}</p>
                   <div className="flex text-yellow-400 text-xs">
                     <Star /><Star /><Star /><Star /><Star />
                   </div>
                 </div>
               </div>
 
-              {/* TEXT */}
               <p className="text-sm leading-relaxed text-neutral-300">
                 “{item.text}”
               </p>
